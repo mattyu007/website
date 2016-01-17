@@ -1,0 +1,80 @@
+/* ========== Basic Setup ========== */
+* {
+    margin: 0;
+}
+html, body {
+    height: 100%;
+}
+body {
+    font-family: 'Karla', 'Proxima Nova', 'Avenir', Helvetica, sans-serif;
+    font-size: 16px;
+    
+    color: hsl(0, 0%, 40%);
+    background-color: hsl(0, 0%, 92.5%);
+	
+	margin: 0;
+	padding: 0;
+}
+
+h1 {
+    font-size: 200%;
+}
+
+/* ========== Utility Classes ========== */
+.hidden {
+    visibility: hidden !important;
+}
+
+.nodisplay {
+    display: none !important;
+}
+
+/* ========== Card ========== */
+.card {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform: translate(calc(-50% - 12px), calc(-50% - 12px));
+    
+    width: 300px;
+    min-width: 200px;
+    max-width: 80%;
+    
+    min-height: 300px;
+    
+    margin: 12px;
+    padding: 30px 16px;
+    
+    background-color: white;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    
+    text-align: center;
+}
+
+.card > * {
+    margin: 16px;
+}
+
+.card-avatar {
+    width: 50%;
+    border-radius: 50%;
+    border: 1px solid hsl(0, 0%, 75%);
+}
+
+.card-links > * {
+    text-decoration: none;
+    
+    padding-left: 12px;
+    padding-right: 12px;
+    border-right: 1px solid hsl(0, 0%, 75%);
+}
+
+.card-links > :first-child {
+    padding-left: 0;
+}
+
+.card-links > :last-child {
+    padding-right: 0;
+    border-right: none;
+}
