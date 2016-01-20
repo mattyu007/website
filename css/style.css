@@ -20,6 +20,7 @@ h1 {
     font-size: 200%;
 }
 
+
 /* ========== Utility Classes ========== */
 .hidden {
     visibility: hidden !important;
@@ -28,6 +29,7 @@ h1 {
 .nodisplay {
     display: none !important;
 }
+
 
 /* ========== Card ========== */
 .card {
