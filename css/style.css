@@ -1,16 +1,25 @@
-/* ========== Basic Setup ========== */
+/* ==================== Basic Setup ==================== */
 * {
     margin: 0;
 }
-html, body {
+
+*, *:before, *:after {
+    box-sizing: border-box;
+}
+
+html {
+    box-sizing: border-box;
     height: 100%;
 }
+
 body {
-    font-family: 'Karla', 'Proxima Nova', 'Avenir', Helvetica, sans-serif;
+    font-family: 'Karla', 'Proxima Nova', 'Avenir', sans-serif;
     font-size: 16px;
     
     color: hsl(0, 0%, 40%);
     background-color: hsl(0, 0%, 92.5%);
+    
+    min-height: 100%;
 	
 	margin: 0;
 	padding: 0;
@@ -20,8 +29,53 @@ h1 {
     font-size: 200%;
 }
 
+h2 {
+    font-size: 150%;
+    
+    margin-top: 48px;
+    margin-left: 12px;
+    
+    text-align: left;
+}
 
-/* ========== Utility Classes ========== */
+h3 {
+    font-size: 125%;
+    
+    text-align: center;
+}
+
+h3 > small {
+    font-size: 75%;
+    font-weight: normal;
+    font-style: italic;
+}
+
+a {
+    color: blue;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:visited {
+    color: blue;
+}
+
+a.arrow-link:before {
+    content: url(../images/arrow_right.svg);
+    padding: 0 6px 0 0;
+    vertical-align: -17%;
+}
+
+.pin-bottom {
+    position: absolute;
+    bottom: 0;
+}
+
+
+/* ==================== Utility Classes ==================== */
 .hidden {
     visibility: hidden !important;
 }
@@ -30,20 +84,36 @@ h1 {
     display: none !important;
 }
 
+.clear-float {
+	clear: both;
+	margin: 0;
+	padding: 0;
+}
 
-/* ========== Card ========== */
+
+/* ==================== Container ==================== */
+#container {
+    width: 100%;
+    max-width: 900px;
+    
+    margin: auto;
+    padding: 30px;
+    
+    text-align: center;
+} 
+
+
+/* ==================== Base Card ==================== */
 .card {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    transform: translate(calc(-50% - 12px), calc(-50% - 12px));
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
     
-    width: 300px;
-    min-width: 200px;
-    max-width: 80%;
+    width: 350px;
+    max-width: 100%;
+    max-width: calc(100% - 24px); /* 100% - 2 * padding */
     
-    min-height: 300px;
+    min-height: 350px;
     
     margin: 12px;
     padding: 30px 16px;
@@ -58,25 +128,129 @@ h1 {
     margin: 16px;
 }
 
-.card-avatar {
-    width: 50%;
+.card > .content > * {
+    margin: 16px;
+}
+
+.card > .image {
+    width: 125px;
+}
+
+.card > .image-round {
+    width: 150px;
     border-radius: 50%;
     border: 1px solid hsl(0, 0%, 75%);
 }
 
-.card-links > * {
-    text-decoration: none;
-    
+.card > .content {
+    text-align: left;
+}
+
+.card > .content > .links > * {
     padding-left: 12px;
     padding-right: 12px;
     border-right: 1px solid hsl(0, 0%, 75%);
 }
 
-.card-links > :first-child {
+.card > .content > .links > :first-child {
     padding-left: 0;
 }
 
-.card-links > :last-child {
+.card > .content > .links > :last-child {
     padding-right: 0;
     border-right: none;
+}
+
+
+/* ==================== Fixed Cards ==================== */
+.card-centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transform: translate(calc(-50% - 12px), calc(-50% - 12px));
+    
+    text-align: center;
+}
+
+
+/* ==================== Hero Cards ==================== */
+.card-hero {
+    display: block;
+    width: 100%;
+    min-height: 0;
+    
+    text-align: center;
+}
+
+.card-hero > .content {
+    text-align: center;
+}
+
+@media screen and (min-width: 600px) {
+    .card-hero {
+        padding-left: 220px;
+    }
+    
+    .card-hero > .image-round {
+        display: block;
+        position: relative;
+        float: left;
+        width: 150px;
+        margin-left: -174px;
+    }
+    
+    .card-hero > .content {
+        display: block;
+		position: relative;
+		float: left;
+		padding-left: 0px;
+		text-align: left;
+		width: 95%;
+    }
+    
+    .card-hero > .content > :first-child {
+        margin-top: 0;
+    }
+    
+    .card-hero > .content > :last-child {
+        margin-bottom: 0;
+    }
+}
+
+
+/* ==================== Small Cards ==================== */
+
+.card-small {
+    /* width: 380px; */ /* 2 cards */
+    width: 252px; /* 3 cards */
+    padding: 16px 8px;
+}
+
+.card-small > * {
+    margin: 12px;
+}
+
+.card-small > .image {
+    margin-bottom: 0;
+}
+
+.card-small > .content {
+    padding-bottom: 14px;
+}
+
+.card-small > .content > * {
+    margin: 12px;
+}
+
+@media screen and (min-width: 650px) {
+    .card-small {
+        padding: 8px 0;
+    }
+}
+
+@media screen and (max-width: 649px) {
+    .card-small {
+        width: 100%;
+    }
 }
