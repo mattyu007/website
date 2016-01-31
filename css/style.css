@@ -33,7 +33,7 @@ h1 {
 h2 {
     font-size: 150%;
     
-    margin-top: 48px;
+    margin-top: 24px;
     margin-left: 12px;
     
     text-align: left;
@@ -64,8 +64,19 @@ a:visited {
     color: blue;
 }
 
+a.disabled {
+    pointer-events: none;
+    color: hsl(0, 0%, 65%);
+}
+
 a.arrow-link:before {
     content: url(../images/arrow_right.svg);
+    padding: 0 6px 0 0;
+    vertical-align: -17%;
+}
+
+a.arrow-link.disabled:before {
+    content: url(../images/arrow_right_grey.svg);
     padding: 0 6px 0 0;
     vertical-align: -17%;
 }
@@ -117,9 +128,19 @@ a.arrow-link:before {
     
     text-align: center;
     
+    /* Force hardware acceleration to smooth out animation */
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+    
     -webkit-animation: slide-up 0.75s ease 0s;
     animation: slide-up 0.75s ease 0s;
-} 
+}
+
+#container > p {
+    margin-left: 12px;
+    
+    text-align: left;
+}
 
 
 /* ==================== Base Card ==================== */
@@ -199,6 +220,8 @@ a.arrow-link:before {
     width: 100%;
     min-height: 0;
     
+    margin-bottom: 48px;
+    
     text-align: center;
 }
 
@@ -239,7 +262,6 @@ a.arrow-link:before {
 
 
 /* ==================== Small Cards ==================== */
-
 .card-small {
     /* width: 380px; */ /* 2 cards */
     width: 252px; /* 3 cards */
@@ -254,6 +276,11 @@ a.arrow-link:before {
 
 .card-small > .image {
     margin-bottom: 0;
+}
+
+.card-small > .image-round {
+    margin-bottom: 0;
+    width: 100px;
 }
 
 .card-small > .content {
@@ -273,5 +300,38 @@ a.arrow-link:before {
 @media screen and (max-width: 649px) {
     .card-small {
         width: 100%;
+    }
+}
+
+
+/* ==================== Coming Soon Cards ==================== */
+.card-coming-soon {
+    border: 4px dashed hsl(0, 0%, 75%);
+    border-radius: 4px;
+    box-shadow: none;
+    background-color: inherit;
+}
+
+.card-coming-soon h3, .card-coming-soon p {
+    opacity: 0.65;
+}
+
+.card-coming-soon img {
+    opacity: 0.5;
+}
+
+
+/* ==================== Card Sections ==================== *
+ * Used to control the height of the cards in each section
+ * (i.e., to make them all equally tall).
+ * Only applied for the large screen size.
+ */
+@media screen and (min-width: 650px) {
+    #cards-section-places .card {
+        min-height: 450px;
+    }
+    
+    #cards-section-things .card {
+        min-height: 300px;
     }
 }
