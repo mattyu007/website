@@ -69,16 +69,29 @@ a.disabled {
     color: hsl(0, 0%, 65%);
 }
 
+a.arrow-link {
+    margin: 6px 0;
+}
+
 a.arrow-link:before {
-    content: url(../images/arrow_right.svg);
-    padding: 0 6px 0 0;
+    content: '';
+    background-image: url(../images/arrow_right.svg);
+    background-repeat: no-repeat;
+    background-size: 16px;
+    display: inline-block;
+    height: 16px;
+    width: 22px;
+    
     vertical-align: -17%;
 }
 
 a.arrow-link.disabled:before {
-    content: url(../images/arrow_right_grey.svg);
-    padding: 0 6px 0 0;
-    vertical-align: -17%;
+    background-image: url(../images/arrow_right_grey.svg);
+}
+
+a.arrow-link.arrow-link-github:before {
+    background-image: url(../images/github.png);
+    vertical-align: -12%;
 }
 
 .pin-bottom {
@@ -199,6 +212,21 @@ a.arrow-link.disabled:before {
 .card > .content > .links > :last-child {
     padding-right: 0;
     border-right: none;
+}
+
+.card > .content > .arrow-links {
+    position: absolute;
+    bottom: 0;
+}
+
+.card > .content > .arrow-links > a {
+    display: block;
+}
+
+.card > .content > .arrow-links-spacer-extra-1-link {
+    margin: 0;
+    padding: 0;
+    height: 30px;
 }
 
 
@@ -328,10 +356,10 @@ a.arrow-link.disabled:before {
  */
 @media screen and (min-width: 650px) {
     #cards-section-places .card {
-        min-height: 450px;
+        min-height: 430px;
     }
     
     #cards-section-things .card {
-        min-height: 300px;
+        min-height: 315px;
     }
 }
