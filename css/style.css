@@ -26,6 +26,10 @@ body {
 	padding: 0;
 }
 
+.light {
+    color: hsl(0, 0%, 65%);
+}
+
 h1 {
     font-size: 200%;
 }
@@ -67,6 +71,27 @@ a:visited {
 a.disabled {
     pointer-events: none;
     color: hsl(0, 0%, 65%);
+}
+
+a[target='_blank'] {
+    display: inline-block;
+    padding-right: 12px;
+}
+
+a[target='_blank']:after {
+    content: '';
+    background-image: url(../images/arrow_small_up_right.svg);
+    background-repeat: no-repeat;
+    background-size: 12px;
+    display: inline-block;
+    height: 12px;
+    width: 12px;
+    
+    /* Combined with `display: inline-block` on the anchor, prevents line breaks
+       between the text and the icon. */
+    position: relative;
+    left: 12px;
+    margin-left: -12px;
 }
 
 a.arrow-link {
@@ -153,6 +178,12 @@ a.arrow-link.arrow-link-github:before {
     margin-left: 12px;
     
     text-align: left;
+}
+
+@media screen and (max-width: 375px) {
+    #container {
+        padding: 10px;
+    }
 }
 
 
@@ -255,6 +286,16 @@ a.arrow-link.arrow-link-github:before {
 
 .card-hero > .content {
     text-align: center;
+}
+
+@media screen and (max-width: 599px) {
+    .card {
+        padding: 16px 0px;
+    }
+    
+    .card > * {
+        margin: 12px;
+    }
 }
 
 @media screen and (min-width: 600px) {
