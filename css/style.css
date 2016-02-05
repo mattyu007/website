@@ -124,6 +124,17 @@ a.arrow-link.arrow-link-github:before {
     bottom: 0;
 }
 
+.inprogress:before, .inprogress:after {
+    content: '';
+    display: inline-block;
+    width: 4px;
+    background-color: #fde742;
+}
+.inprogress {
+    background-color: #fde742;
+    display: inline-block;
+}
+
 
 /* ==================== Utility Classes ==================== */
 .hidden {
@@ -280,10 +291,17 @@ a.arrow-link.arrow-link-github:before {
     display: block;
 }
 
-.card > .content > .arrow-links-spacer-extra-1-link {
+/* Since .arrow-links is positioned absolutely, use spacers to avoid crashing into other content */
+.card > .content > .arrow-links-spacer-1-link {
     margin: 0;
     padding: 0;
-    height: 30px;
+    height: 14px;
+}
+
+.card > .content > .arrow-links-spacer-2-links {
+    margin: 0;
+    padding: 0;
+    height: 40px;
 }
 
 
@@ -358,11 +376,18 @@ a.arrow-link.arrow-link-github:before {
 
 /* ==================== Small Cards ==================== */
 .card-small {
-    /* width: 380px; */ /* 2 cards */
-    width: 252px; /* 3 cards */
+    width: 252px;
+    width: calc(33% - 26px);
     padding: 16px 8px;
     
     min-height: 252px;
+}
+
+@media screen and (max-width: 899px) {
+    .card-small {
+        width: 380px;
+        width: calc(50% - 26px);
+    }
 }
 
 .card-small > * {
@@ -376,10 +401,6 @@ a.arrow-link.arrow-link-github:before {
 .card-small > .image-round {
     margin-bottom: 0;
     width: 100px;
-}
-
-.card-small > .content {
-    padding-bottom: 14px;
 }
 
 .card-small > .content > * {
