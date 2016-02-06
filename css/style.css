@@ -15,15 +15,14 @@ html {
 body {
     font-family: 'Karla', 'Proxima Nova', 'Avenir', sans-serif;
     font-size: 16px;
-    -webkit-font-smoothing: subpixel-antialiased;
     
     color: hsl(0, 0%, 40%);
     background-color: hsl(0, 0%, 92.5%);
     
     min-height: 100%;
-	
-	margin: 0;
-	padding: 0;
+    
+    margin: 0;
+    padding: 0;
 }
 
 .light {
@@ -73,12 +72,12 @@ a.disabled {
     color: hsl(0, 0%, 65%);
 }
 
-a[target='_blank'] {
+a[target='_blank']:not(.arrow-link) {
     display: inline-block;
     padding-right: 12px;
 }
 
-a[target='_blank']:after {
+a[target='_blank']:not(.arrow-link):after {
     content: '';
     background-image: url(../images/arrow_small_up_right.svg);
     background-repeat: no-repeat;
@@ -107,7 +106,7 @@ a.arrow-link:before {
     height: 16px;
     width: 22px;
     
-    vertical-align: -17%;
+    vertical-align: -15%;
 }
 
 a.arrow-link.disabled:before {
@@ -119,6 +118,18 @@ a.arrow-link.arrow-link-github:before {
     vertical-align: -12%;
 }
 
+ul > li {
+    padding-bottom: 8px;
+}
+
+ul > li:last-of-type {
+    padding-bottom: initial;
+}
+
+ul.tight {
+    padding-left: 22px;
+}
+
 .pin-bottom {
     position: absolute;
     bottom: 0;
@@ -127,7 +138,7 @@ a.arrow-link.arrow-link-github:before {
 .inprogress:before, .inprogress:after {
     content: '';
     display: inline-block;
-    width: 4px;
+    width: 6px;
     background-color: #fde742;
 }
 .inprogress {
@@ -146,25 +157,25 @@ a.arrow-link.arrow-link-github:before {
 }
 
 .clear-float {
-	clear: both;
-	margin: 0;
-	padding: 0;
+    clear: both;
+    margin: 0;
+    padding: 0;
 }
 
 
 /* ==================== Container ==================== */
-@-webkit-keyframes bounce-up {
+@-webkit-keyframes kf-bounce-up {
     0%   { opacity: 0; top: 40px; }
     50%  { opacity: 1;            }
-	75%  {             top: -4px; }
-	100% {             top: 0px;  } 
+    75%  {             top: -4px; }
+    100% {             top: 0px;  } 
 }
 
-@keyframes bounce-up {
+@keyframes kf-bounce-up {
     0%   { opacity: 0; top: 40px; }
     50%  { opacity: 1;            }
-	65%  {             top: -4px; }
-	100% {             top: 0px;  } 
+    65%  {             top: -4px; }
+    100% {             top: 0px;  } 
 }
 
 #container {
@@ -177,12 +188,8 @@ a.arrow-link.arrow-link-github:before {
     
     text-align: center;
     
-    /* Force hardware acceleration to smooth out animation */
-    -webkit-transform: translate3d(0,0,0);
-    transform: translate3d(0,0,0);
-    
-    -webkit-animation: bounce-up 0.6s ease 0s;
-    animation: bounce-up 0.6s ease 0s;
+    -webkit-animation: kf-bounce-up 0.5s ease 0s;
+    animation: kf-bounce-up 0.5s ease 0s;
 }
 
 #container > p {
@@ -211,7 +218,7 @@ a.arrow-link.arrow-link-github:before {
     min-height: 350px;
     
     margin: 12px;
-    padding: 30px 16px;
+    padding: 16px;
     
     background-color: white;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
@@ -357,11 +364,11 @@ a.arrow-link.arrow-link-github:before {
     
     .card-hero > .content {
         display: block;
-		position: relative;
-		float: left;
-		padding-left: 0px;
-		text-align: left;
-		width: 95%;
+        position: relative;
+        float: left;
+        padding-left: 0px;
+        text-align: left;
+        width: 95%;
     }
     
     .card-hero > .content > :first-child {
@@ -383,10 +390,22 @@ a.arrow-link.arrow-link-github:before {
     min-height: 252px;
 }
 
+@media screen and (min-width: 599px) {
+    .card-small {
+        padding: 8px 0;
+    }
+}
+
 @media screen and (max-width: 899px) {
     .card-small {
         width: 380px;
         width: calc(50% - 26px);
+    }
+}
+
+@media screen and (max-width: 599px) {
+    .card-small {
+        width: 100%;
     }
 }
 
@@ -405,18 +424,6 @@ a.arrow-link.arrow-link-github:before {
 
 .card-small > .content > * {
     margin: 12px;
-}
-
-@media screen and (min-width: 650px) {
-    .card-small {
-        padding: 8px 0;
-    }
-}
-
-@media screen and (max-width: 649px) {
-    .card-small {
-        width: 100%;
-    }
 }
 
 
@@ -442,9 +449,13 @@ a.arrow-link.arrow-link-github:before {
  * (i.e., to make them all equally tall).
  * Only applied for the large screen size.
  */
-@media screen and (min-width: 650px) {
+@media screen and (min-width: 600px) {
     #cards-section-places .card {
         min-height: 430px;
+    }
+    
+    #cards-section-classes .card {
+        min-height: 275px;
     }
     
     #cards-section-things .card {
