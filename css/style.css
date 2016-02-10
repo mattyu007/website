@@ -247,6 +247,8 @@ ul.tight {
 .card > .course {
     position: relative;
     color: hsl(0, 0%, 15%);
+    
+    font-size: 300%;
 }
 
 .card > .course:after {
@@ -256,18 +258,6 @@ ul.tight {
     left: 30%;
     width: 40%;
     border-bottom: 1px solid hsl(0, 0%, 75%);
-}
-
-.card > .course > .course-type {
-    font-weight: bold;
-    font-size: 150%;
-    
-    padding-right: 4px;
-}
-
-.card > .course > .course-number {
-    font-weight: normal;
-    font-size: 300%;
 }
 
 .card > .content {
@@ -455,7 +445,7 @@ ul.tight {
     }
     
     #cards-section-classes .card {
-        min-height: 275px;
+        min-height: 300px;
     }
     
     #cards-section-things .card {
