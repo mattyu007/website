@@ -113,6 +113,10 @@ a.arrow-link.disabled:before {
     background-image: url(../images/arrow_right_grey.svg);
 }
 
+a.arrow-link.arrow-link-coming-soon:before {
+    background-image: url(../images/clock_grey.svg);
+}
+
 a.arrow-link.arrow-link-github:before {
     background-image: url(../images/github.png);
     vertical-align: -12%;
