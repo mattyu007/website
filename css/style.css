@@ -208,6 +208,15 @@ ul.tight {
     }
 }
 
+#section-dancing-animals {
+    padding-top: 500px;
+}
+
+#section-dancing-animals > img {
+    margin: 5px;
+    width: 50px;
+}
+
 
 /* ==================== Base Card ==================== */
 .card {
