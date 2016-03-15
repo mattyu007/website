@@ -148,6 +148,10 @@ ul.tight {
 .inprogress {
     background-color: #fde742;
     display: inline-block;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: normal;
+    text-transform: uppercase;
 }
 
 
